@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
+
+html,body{height:100%;}
+
+body{
+  background:linear-gradient(135deg,#eef2f7,#e6ecf5);
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+header{
+  height:60px;
+  background:#0f172a;
+  color:#fff;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header-left{display:flex;align-items:center;gap:10px;}
+.logo{width:30px;}
+
+.header-right{display:flex;align-items:center;gap:15px;}
+
+.back-btn{
+  background:#1e293b;
+  border:none;
+  color:#fff;
+  padding:6px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* FILTER BAR */
+.filters{
+  display:flex;
+  gap:15px;
+  padding:15px 20px;
+  flex-wrap:wrap;
+}
+
+select,input{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-size:12px;
+}
+
+/* KPI */
+.kpi-wrapper{
+  display:flex;
+  gap:20px;
+  padding:0 20px;
+  flex-wrap:wrap;
+}
+
+.kpi{
+  flex:1;
+  min-width:180px;
+
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(8px);
+
+  padding:16px;
+  border-radius:16px;
+
+  border:1px solid rgba(255,255,255,0.4);
+  box-shadow:0 6px 16px rgba(0,0,0,0.05);
+}
+
+.kpi-title{
+  font-size:12px;
+  color:#64748b;
+}
+
+.kpi-value{
+  font-size:26px;
+  font-weight:800;
+  margin-top:5px;
+}
+
+.blue{color:#2563eb;}
+.green{color:#16a34a;}
+.red{color:#dc2626;}
+
+/* CONTENT */
+.content{
+  flex:1;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+}
+
+/* CARD */
+.card{
+  width:100%;
+
+
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(10px);
+
+  border-radius:20px;
+  padding:20px;
+
+  border:1px solid rgba(255,255,255,0.4);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* CHART */
+canvas{
+  width:100%!important;
+  height:300px!important;
+}
+
+/* FOOTER */
+footer{
+  background:#0f172a;
+  color:#94a3b8;
+  text-align:center;
+  padding:10px;
+  font-size:11px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="assets/factory-logo.png" class="logo">
+    <strong>Production Details</strong>
+  </div>
+
+  <div class="header-right">
+    <div id="time"></div>
+    <button class="back-btn" onclick="history.back()">← Back</button>
+  </div>
+</header>
+
+<!-- FILTERS -->
+<div class="filters">
+  <select>
+    <option>Shift A</option>
+    <option>Shift B</option>
+    <option>Shift C</option>
+  </select>
+
+  <select>
+    <option>Line 1</option>
+    <option>Line 2</option>
+  </select>
+
+  <input type="date">
+</div>
+
+<!-- KPI -->
+<div class="kpi-wrapper">
+  <div class="kpi">
+    <div class="kpi-title">Actual Production</div>
+    <div class="kpi-value blue">12,450</div>
+  </div>
+
+  <div class="kpi">
+    <div class="kpi-title">Target</div>
+    <div class="kpi-value">15,000</div>
+  </div>
+
+  <div class="kpi">
+    <div class="kpi-title">Gap</div>
+    <div class="kpi-value red">-2,550</div>
+  </div>
+
+  <div class="kpi">
+    <div class="kpi-title">Efficiency</div>
+    <div class="kpi-value green">83%</div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+  <div class="card">
+    <h3>Hourly Production</h3>
+    <canvas id="barChart"></canvas>
+  </div>
+</div>
+
+<footer>
+  © 2026 Factory X • Production Details
+</footer>
+
+<script>
+// CLOCK
+setInterval(()=>{
+  document.getElementById("time").innerText =
+    new Date().toLocaleTimeString();
+},1000);
+
+// BAR CHART
+new Chart(document.getElementById("barChart"),{
+  type:'bar',
+  data:{
+    labels:['00','04','08','12','16','20'],
+    datasets:[{
+      data:[600,1100,900,1500,1200,1600],
+      borderRadius:8
+    }]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:{color:'#e5e7eb'}}
+    }
+  }
+});
+</script>
+
+</body>
+</html>

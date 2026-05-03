@@ -1,0 +1,6 @@
+{
+  "name": "Factory Dashboard",
+  "description": "Real-time monitor for production, energy consumption, and dispatch performance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

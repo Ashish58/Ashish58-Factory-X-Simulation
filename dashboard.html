@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factory X Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter;
+}
+
+html,body{
+  height:100%;
+}
+
+body{
+  background:linear-gradient(135deg,#eef2f7,#e6ecf5);
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+header{
+  height:60px;
+  background:#0f172a;
+  color:#fff;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:30px;
+}
+
+/* RIGHT SIDE */
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.back-btn{
+  background:#1e293b;
+  border:none;
+  color:#fff;
+  padding:6px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.back-btn:hover{
+  background:#334155;
+}
+
+/* MAIN */
+main{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px;
+}
+
+/* CARD WRAPPER */
+.card-wrapper{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* CARD */
+.card{
+  width:320px;
+  height:260px;
+
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+
+  border-radius:20px;
+  padding:18px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  border:1px solid rgba(255,255,255,0.4);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  transition:0.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.01);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* HEADER */
+.card-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:13px;
+  font-weight:600;
+  opacity:0.8;
+}
+
+.icon{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+/* ICON COLORS */
+.blue-bg{background:linear-gradient(135deg,#3b82f6,#2563eb);}
+.green-bg{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.purple-bg{background:linear-gradient(135deg,#a855f7,#9333ea);}
+
+/* VALUES */
+.value{
+  font-size:30px;
+  font-weight:800;
+  margin-top:6px;
+}
+
+.sub{
+  font-size:13px;
+  color:#64748b;
+}
+
+/* COLORS */
+.blue{color:#2563eb;}
+.green{color:#16a34a;}
+.purple{color:#9333ea;}
+.orange{color:#f97316;}
+
+/* PROGRESS */
+.progress{
+  margin-top:14px;
+  height:10px;
+  background:#e2e8f0;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  border-radius:20px;
+  position:relative;
+}
+
+.progress-fill::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
+  animation:shine 2s infinite;
+}
+
+@keyframes shine{
+  0%{transform:translateX(-100%);}
+  100%{transform:translateX(100%);}
+}
+
+/* SPLIT */
+.split{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+/* BUTTON (ANCHOR STYLE) */
+.btn{
+  text-decoration:none;
+  text-align:center;
+  display:block;
+
+  padding:12px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:600;
+
+  background:linear-gradient(135deg,#e2e8f0,#f8fafc);
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  transition:0.2s;
+  color:#000;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer{
+  background:#0f172a;
+  color:#94a3b8;
+  text-align:center;
+  padding:10px;
+  font-size:11px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="assets/factory-logo.png" class="logo">
+    <strong>Factory X</strong>
+  </div>
+
+  <div class="header-right">
+    <div id="time"></div>
+    <button class="back-btn" onclick="history.back()">← Back</button>
+  </div>
+</header>
+
+<main>
+<div class="card-wrapper">
+
+<!-- PRODUCTION -->
+<div class="card">
+  <div>
+    <div class="card-header blue">
+      <div class="icon blue-bg">🏭</div>
+      PRODUCTION COUNT
+    </div>
+
+    <div class="value blue">12,450 Units</div>
+    <div class="sub">Target: 15,000</div>
+
+    <div class="progress">
+      <div class="progress-fill" style="width:83%;background:linear-gradient(90deg,#3b82f6,#2563eb);"></div>
+    </div>
+  </div>
+
+  <a href="production-details.html" class="btn">
+    View Details →
+  </a>
+</div>
+
+<!-- ENERGY -->
+<div class="card">
+  <div>
+    <div class="card-header green">
+      <div class="icon green-bg">⚡</div>
+      ENERGY CONSUMPTION
+    </div>
+
+    <div class="value green">8,560 kWh</div>
+    <div class="sub">Efficiency: 94%</div>
+
+    <div class="progress">
+      <div class="progress-fill" style="width:65%;background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
+    </div>
+  </div>
+
+  <a href="energy-consumption.html" class="btn">
+    View Details →
+  </a>
+</div>
+
+<!-- DISPATCH -->
+<div class="card">
+  <div>
+    <div class="card-header purple">
+      <div class="icon purple-bg">🚚</div>
+      DISPATCH STATUS
+    </div>
+
+    <div class="split">
+      <div>
+        <div class="value purple">11,230</div>
+        <div class="sub">Done</div>
+      </div>
+      <div>
+        <div class="value orange">1,220</div>
+        <div class="sub">Pending</div>
+      </div>
+    </div>
+
+    <div class="progress">
+      <div class="progress-fill" style="width:90%;background:linear-gradient(90deg,#a855f7,#9333ea);"></div>
+    </div>
+  </div>
+
+  <a href="dispatch-status.html" class="btn">
+    View Details →
+  </a>
+</div>
+
+</div>
+</main>
+
+<footer>
+  © 2026 Factory X • Dashboard
+</footer>
+
+<script>
+// LIVE CLOCK
+setInterval(()=>{
+  document.getElementById("time").innerText =
+    new Date().toLocaleTimeString();
+},1000);
+</script>
+
+</body>
+</html>
