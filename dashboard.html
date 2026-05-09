@@ -8,11 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Inter;
+  font-family:Inter,sans-serif;
 }
 
 html,body{
@@ -26,11 +27,14 @@ body{
 }
 
 /* HEADER */
+
 header{
   height:60px;
   background:#0f172a;
   color:#fff;
+
   padding:0 20px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -47,6 +51,7 @@ header{
 }
 
 /* RIGHT SIDE */
+
 .header-right{
   display:flex;
   align-items:center;
@@ -57,8 +62,11 @@ header{
   background:#1e293b;
   border:none;
   color:#fff;
+
   padding:6px 12px;
+
   border-radius:8px;
+
   cursor:pointer;
   font-size:12px;
 }
@@ -68,15 +76,19 @@ header{
 }
 
 /* MAIN */
+
 main{
   flex:1;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   padding:30px;
 }
 
 /* CARD WRAPPER */
+
 .card-wrapper{
   display:flex;
   gap:30px;
@@ -85,14 +97,17 @@ main{
 }
 
 /* CARD */
+
 .card{
   width:320px;
   height:260px;
 
   background:rgba(255,255,255,0.7);
+
   backdrop-filter:blur(10px);
 
   border-radius:20px;
+
   padding:18px;
 
   display:flex;
@@ -100,6 +115,7 @@ main{
   justify-content:space-between;
 
   border:1px solid rgba(255,255,255,0.4);
+
   box-shadow:
     0 10px 30px rgba(0,0,0,0.08),
     inset 0 1px 0 rgba(255,255,255,0.6);
@@ -112,32 +128,52 @@ main{
   box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
-/* HEADER */
+/* CARD HEADER */
+
 .card-header{
   display:flex;
   align-items:center;
   gap:12px;
+
   font-size:13px;
   font-weight:600;
-  opacity:0.8;
+
+  opacity:0.85;
 }
 
 .icon{
   width:32px;
   height:32px;
+
   border-radius:10px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   color:#fff;
 }
 
 /* ICON COLORS */
-.blue-bg{background:linear-gradient(135deg,#3b82f6,#2563eb);}
-.green-bg{background:linear-gradient(135deg,#22c55e,#16a34a);}
-.purple-bg{background:linear-gradient(135deg,#a855f7,#9333ea);}
 
-/* VALUES */
+.blue-bg{
+  background:linear-gradient(135deg,#3b82f6,#2563eb);
+}
+
+.green-bg{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.purple-bg{
+  background:linear-gradient(135deg,#a855f7,#9333ea);
+}
+
+.cyan-bg{
+  background:linear-gradient(135deg,#06b6d4,#0891b2);
+}
+
+/* VALUE */
+
 .value{
   font-size:30px;
   font-weight:800;
@@ -150,17 +186,37 @@ main{
 }
 
 /* COLORS */
-.blue{color:#2563eb;}
-.green{color:#16a34a;}
-.purple{color:#9333ea;}
-.orange{color:#f97316;}
+
+.blue{
+  color:#2563eb;
+}
+
+.green{
+  color:#16a34a;
+}
+
+.purple{
+  color:#9333ea;
+}
+
+.orange{
+  color:#f97316;
+}
+
+.cyan{
+  color:#0891b2;
+}
 
 /* PROGRESS */
+
 .progress{
   margin-top:14px;
   height:10px;
+
   background:#e2e8f0;
+
   border-radius:20px;
+
   overflow:hidden;
 }
 
@@ -174,36 +230,59 @@ main{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+
   animation:shine 2s infinite;
 }
 
 @keyframes shine{
-  0%{transform:translateX(-100%);}
-  100%{transform:translateX(100%);}
+
+  0%{
+    transform:translateX(-100%);
+  }
+
+  100%{
+    transform:translateX(100%);
+  }
+
 }
 
 /* SPLIT */
+
 .split{
   display:flex;
   justify-content:space-between;
   margin-top:10px;
 }
 
-/* BUTTON (ANCHOR STYLE) */
+/* BUTTON */
+
 .btn{
   text-decoration:none;
   text-align:center;
   display:block;
 
   padding:12px;
+
   border-radius:12px;
+
   font-size:13px;
   font-weight:600;
 
-  background:linear-gradient(135deg,#e2e8f0,#f8fafc);
+  background:
+  linear-gradient(135deg,#e2e8f0,#f8fafc);
+
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
+
   transition:0.2s;
+
   color:#000;
 }
 
@@ -213,105 +292,282 @@ main{
 }
 
 /* FOOTER */
+
 footer{
   background:#0f172a;
   color:#94a3b8;
+
   text-align:center;
+
   padding:10px;
+
   font-size:11px;
 }
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+main{
+  padding:20px;
+}
+
+.card{
+  width:100%;
+  max-width:360px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="header-left">
+
     <img src="assets/factory-logo.png" class="logo">
+
     <strong>Factory X</strong>
+
   </div>
 
   <div class="header-right">
+
     <div id="time"></div>
-    <button class="back-btn" onclick="history.back()">← Back</button>
+
+    <button class="back-btn" onclick="history.back()">
+      ← Back
+    </button>
+
   </div>
+
 </header>
 
 <main>
+
 <div class="card-wrapper">
 
 <!-- PRODUCTION -->
+
 <div class="card">
+
   <div>
+
     <div class="card-header blue">
+
       <div class="icon blue-bg">🏭</div>
+
       PRODUCTION COUNT
+
     </div>
 
-    <div class="value blue">12,450 Units</div>
-    <div class="sub">Target: 15,000</div>
+    <div class="value blue">
+      12,450 Units
+    </div>
+
+    <div class="sub">
+      Target: 15,000
+    </div>
 
     <div class="progress">
-      <div class="progress-fill" style="width:83%;background:linear-gradient(90deg,#3b82f6,#2563eb);"></div>
+
+      <div
+        class="progress-fill"
+        style="
+        width:83%;
+        background:linear-gradient(90deg,#3b82f6,#2563eb);
+      ">
+      </div>
+
     </div>
+
   </div>
 
   <a href="production-details.html" class="btn">
     View Details →
   </a>
+
 </div>
 
 <!-- ENERGY -->
+
 <div class="card">
+
   <div>
+
     <div class="card-header green">
+
       <div class="icon green-bg">⚡</div>
+
       ENERGY CONSUMPTION
+
     </div>
 
-    <div class="value green">8,560 kWh</div>
-    <div class="sub">Efficiency: 94%</div>
+    <div class="value green">
+      8,560 kWh
+    </div>
+
+    <div class="sub">
+      Efficiency: 94%
+    </div>
 
     <div class="progress">
-      <div class="progress-fill" style="width:65%;background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
+
+      <div
+        class="progress-fill"
+        style="
+        width:65%;
+        background:linear-gradient(90deg,#22c55e,#16a34a);
+      ">
+      </div>
+
     </div>
+
   </div>
 
   <a href="energy-consumption.html" class="btn">
     View Details →
   </a>
+
 </div>
 
 <!-- DISPATCH -->
+
 <div class="card">
+
   <div>
+
     <div class="card-header purple">
+
       <div class="icon purple-bg">🚚</div>
+
       DISPATCH STATUS
+
     </div>
 
     <div class="split">
+
       <div>
-        <div class="value purple">11,230</div>
-        <div class="sub">Done</div>
+
+        <div class="value purple">
+          11,230
+        </div>
+
+        <div class="sub">
+          Done
+        </div>
+
       </div>
+
       <div>
-        <div class="value orange">1,220</div>
-        <div class="sub">Pending</div>
+
+        <div class="value orange">
+          1,220
+        </div>
+
+        <div class="sub">
+          Pending
+        </div>
+
       </div>
+
     </div>
 
     <div class="progress">
-      <div class="progress-fill" style="width:90%;background:linear-gradient(90deg,#a855f7,#9333ea);"></div>
+
+      <div
+        class="progress-fill"
+        style="
+        width:90%;
+        background:linear-gradient(90deg,#a855f7,#9333ea);
+      ">
+      </div>
+
     </div>
+
   </div>
 
   <a href="dispatch-status.html" class="btn">
     View Details →
   </a>
+
+</div>
+
+<!-- ORDER TRACKING -->
+
+<div class="card">
+
+  <div>
+
+    <div class="card-header cyan">
+
+      <div class="icon cyan-bg">📦</div>
+
+      ORDER TRACKING
+
+    </div>
+
+    <div class="value cyan">
+      Live Monitoring
+    </div>
+
+    <div class="sub">
+      Production route and inventory scan tracking
+    </div>
+
+    <div class="split">
+
+      <div>
+
+        <div class="value green">
+          ACTIVE
+        </div>
+
+        <div class="sub">
+          Real-Time
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="value orange">
+          MES
+        </div>
+
+        <div class="sub">
+          Integrated
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="progress">
+
+      <div
+        class="progress-fill"
+        style="
+        width:78%;
+        background:linear-gradient(90deg,#06b6d4,#0891b2);
+      ">
+      </div>
+
+    </div>
+
+  </div>
+
+  <a href="order-tracking.html" class="btn">
+    Open Tracking →
+  </a>
+
 </div>
 
 </div>
+
 </main>
 
 <footer>
@@ -319,11 +575,14 @@ footer{
 </footer>
 
 <script>
-// LIVE CLOCK
-setInterval(()=>{
+
+setInterval(function(){
+
   document.getElementById("time").innerText =
-    new Date().toLocaleTimeString();
+  new Date().toLocaleTimeString();
+
 },1000);
+
 </script>
 
 </body>
