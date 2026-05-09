@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
           production: path.resolve(__dirname, 'production-details.html'),
           energy: path.resolve(__dirname, 'energy-consumption.html'),
           dispatch: path.resolve(__dirname, 'dispatch-status.html'),
+           dispatch: path.resolve(__dirname, 'order-tracking.html'),
         },
       },
     },
